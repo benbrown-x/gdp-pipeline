@@ -11,9 +11,28 @@ resources:
     branch: master
     private_key: {{test_key}}
 
+- name: genivi-demo
+  type: git
+  source:
+    uri: http://git.projects.genivi.org/genivi-demo-platform.git
+    branch: qemux86-64
+
 jobs:
 - name: build-git
   plan:
   - get: contest
   - task: do-the-thing
     file: contest/build.yml
+
+- name: yocto-demo
+  plan:
+  - get: contest
+  - get: genivi-demo
+    params: {submodules: all}
+  - task: build
+    config:
+      platform: linux
+      image: "docker:///ubuntu"
+      run:
+        path: echo
+        args: ["I did another clone"]
