@@ -4,19 +4,17 @@ resources:
   source:
     uri: git://git.baserock.org/delta/git.git
     branch: master
+- name: contest
+  type: git
+  source:
+    uri: ssh://git@git.codethink.co.uk/people/benbrown/concourse.git
+    branch: master
+    private_key: {{test_key}}
 
 jobs:
 - name: build-git
   plan:
-  - get: git-repo
+  - get: contest
     trigger: true
   - task: do-the-thing
-    privileged: true
-    config:
-      platform: linux
-      image: "docker:///ubuntu"
-      run:
-        path: sh
-        args:
-          - -c
-          - sudo apt-get -y install make && pwd && ls -a
+    file: contest/build.yml

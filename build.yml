@@ -1,0 +1,6 @@
+---
+platform: linux
+image: "docker:///ubuntu"
+
+run:
+  path: build

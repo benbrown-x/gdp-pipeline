@@ -1,0 +1,3 @@
+#!/bin/sh -eu
+
+echo I am maybe doing things
