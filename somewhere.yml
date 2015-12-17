@@ -15,6 +15,5 @@ jobs:
 - name: build-git
   plan:
   - get: contest
-    trigger: true
   - task: do-the-thing
     file: contest/build.yml
