@@ -1,5 +1,6 @@
 ---
 platform: linux
+privileged: true
 image: "docker:///ubuntu"
 
 inputs:
