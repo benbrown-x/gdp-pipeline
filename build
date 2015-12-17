@@ -1,3 +1,6 @@
-#!/bin/sh -eu
+#!/bin/bash -eu
 
-echo I am maybe doing things
+git clone git://git.baserock.org/delta/git.git git
+pushd git
+  make
+popd
