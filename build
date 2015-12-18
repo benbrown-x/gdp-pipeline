@@ -1,8 +1,10 @@
 #!/bin/bash -eu
 
-sudo apt-get install -y git make
+#sudo apt-get install -y git make
 
-git clone git://git.baserock.org/delta/git.git git
-pushd git
-  make
-popd
+#git clone git://git.baserock.org/delta/git.git git
+#pushd git
+#  make
+#popd
+
+echo hello
