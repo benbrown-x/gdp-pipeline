@@ -1,0 +1,6 @@
+#!/bin/bash -e
+
+pushd genivi-demo
+  source init.sh
+  bitbake genivi-demo-platform
+popd

@@ -1,0 +1,11 @@
+---
+platform: linux
+privileged: true
+image: "docker:///ubuntu"
+
+inputs:
+  - name: contest
+  - name: genivi-demo
+
+run:
+  path: contest/yocto/demo

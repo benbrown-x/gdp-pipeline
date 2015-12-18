@@ -30,9 +30,4 @@ jobs:
   - get: genivi-demo
     params: {submodules: all}
   - task: build
-    config:
-      platform: linux
-      image: "docker:///ubuntu"
-      run:
-        path: echo
-        args: ["I did another clone"]
+    file: contest/yocto/demo.yml
