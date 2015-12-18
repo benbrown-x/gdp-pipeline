@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 # Dependencies
-sudo apt-get install -y git
+sudo apt-get install -y git python
 
 pushd genivi-demo
   source init.sh
