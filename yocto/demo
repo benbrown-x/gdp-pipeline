@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# Dependencies
+sudo apt-get install -y git
+
 pushd genivi-demo
   source init.sh
   bitbake genivi-demo-platform
