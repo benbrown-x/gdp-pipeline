@@ -37,5 +37,7 @@ jobs:
     - get: genivi-demo
       params: {submodules: all}
     - get: bitbake
+  - task: pre-build
+    file: contest/yocto/pre-demo.yml
   - task: build
     file: contest/yocto/demo.yml

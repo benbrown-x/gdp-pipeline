@@ -1,11 +1,11 @@
 ---
 platform: linux
+privileged: true
 image: "docker:///ubuntu"
 
 inputs:
-  - name: pre-build
   - name: contest
-  - name: genivi-demo
+  - name: bitbake
 
 run:
-  path: contest/yocto/demo
+  path: contest/yocto/pre-demo
