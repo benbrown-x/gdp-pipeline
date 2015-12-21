@@ -2,5 +2,6 @@
 
 pushd genivi-demo
   source init.sh
+  touch conf/sanity.conf
   bitbake genivi-demo-platform
 popd
