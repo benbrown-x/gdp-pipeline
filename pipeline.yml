@@ -1,9 +1,4 @@
 resources:
-- name: git-repo
-  type: git
-  source:
-    uri: git://git.baserock.org/delta/git.git
-    branch: master
 - name: contest
   type: git
   source:
@@ -17,27 +12,12 @@ resources:
     uri: http://git.projects.genivi.org/genivi-demo-platform.git
     branch: qemux86-64
 
-- name: bitbake
-  type: git
-  source:
-    uri: git://git.openembedded.org/bitbake
-    branch: 1.26.0
-
 jobs:
-- name: build-git
-  plan:
-  - get: contest
-  - task: do-the-thing
-    file: contest/build.yml
-
 - name: yocto-demo
   plan:
   - aggregate:
     - get: contest
     - get: genivi-demo
       params: {submodules: all}
-    - get: bitbake
-  - task: pre-build
-    file: contest/yocto/pre-demo.yml
   - task: build
     file: contest/yocto/demo.yml

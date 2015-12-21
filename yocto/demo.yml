@@ -1,9 +1,8 @@
 ---
 platform: linux
-image: "docker:///ubuntu"
+image: "docker:///benbrown/yocto-demo"
 
 inputs:
-  - name: pre-build
   - name: contest
   - name: genivi-demo
 
