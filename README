@@ -1,0 +1,23 @@
+# Running the Demo Pipeline
+
+This should be all that's necessary to run what I've set up so far, if not
+poke me and insist that I be better.
+
+    apt-get install vagrant
+
+From the root of this repo run:
+
+    vagrant up
+
+Once it's finished spinning up you should have a shiny looking webpage at
+192.168.100.4:8080.
+
+Download the fly CLI from the above webpage and put it somewhere sensible
+(make sure it's executable) and run the following (replacing variables
+with useful entries):
+
+    fly set-pipeline -p demo-pipeline -c pipeline.yml \
+      --var "test_key=$(cat concourse.key)"
+    fly unpause-pipeline -p demo-pipeline
+
+The webpage will be updated with some more shiny stuff.
