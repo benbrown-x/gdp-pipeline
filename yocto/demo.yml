@@ -6,5 +6,8 @@ inputs:
   - name: contest
   - name: genivi-demo
 
+outputs:
+  - name: build-output
+
 run:
   path: contest/yocto/demo

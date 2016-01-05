@@ -1,7 +1,14 @@
 #!/bin/bash -e
 
+out="$(pwd)/build-output"
 pushd genivi-demo
   source init.sh
   touch conf/sanity.conf
   bitbake genivi-demo-platform
+
+  # Tar up files pointed to by symlinks
+  pushd tmp/deploy/images/qemux86-64/
+    ref="$(git rev-parse --short HEAD)"
+    find -type l | tar -hczvf "$out"/demo-artefacts-"$ref".tgz -T -
+  popd
 popd

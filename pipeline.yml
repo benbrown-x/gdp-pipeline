@@ -12,6 +12,14 @@ resources:
     uri: http://git.projects.genivi.org/genivi-demo-platform.git
     branch: qemux86-64
 
+- name: artefacts
+  type: s3
+  source:
+    bucket: concourse-test-artifacts
+    regexp: demo-artefacts-(.*).tar
+    access_key_id: {{artefacts-bucket-access-key}}
+    secret_access_key: {{artefacts-bucket-secret-key}}
+
 jobs:
 - name: yocto-demo
   plan:
@@ -21,3 +29,5 @@ jobs:
       params: {submodules: all}
   - task: build
     file: contest/yocto/demo.yml
+  - put: artefacts
+    params: {from: build-output/demo-artefacts-(.*).tgz}
