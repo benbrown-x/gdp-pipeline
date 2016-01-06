@@ -17,7 +17,11 @@ Download the fly CLI from the above webpage and put it somewhere sensible
 with useful entries):
 
     fly set-pipeline -p demo-pipeline -c pipeline.yml \
-      --var "test_key=$(cat concourse.key)"
+      --var "test_key=$(cat concourse.key)" \
+      --var "artefacts-bucket=<BUCKET>" \
+      --var "artefacts-region=<REGION>" \
+      --var "artefacts-access-key=<ACCESS_KEY>" \
+      --var "artefacts-secret-key=<SECRET_KEY>"
     fly unpause-pipeline -p demo-pipeline
 
 The webpage will be updated with some more shiny stuff.

@@ -15,10 +15,11 @@ resources:
 - name: artefacts
   type: s3
   source:
-    bucket: concourse-test-artifacts
+    bucket: {{artefacts-bucket}}
+    region_name: {{artefacts-region}}
     regexp: demo-artefacts-(.*).tar
-    access_key_id: {{artefacts-bucket-access-key}}
-    secret_access_key: {{artefacts-bucket-secret-key}}
+    access_key_id: {{artefacts-access-key}}
+    secret_access_key: {{artefacts-secret-key}}
 
 jobs:
 - name: yocto-demo
