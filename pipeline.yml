@@ -1,8 +1,8 @@
 resources:
-- name: contest
+- name: gdp-pipeline
   type: git
   source:
-    uri: ssh://git@git.codethink.co.uk/people/benbrown/concourse.git
+    uri: ssh://git@github.com/benbrown-x/gdp-pipeline.git
     branch: master
     private_key: {{test_key}}
 
@@ -25,10 +25,10 @@ jobs:
 - name: yocto-demo
   plan:
   - aggregate:
-    - get: contest
+    - get: gdp-pipeline
     - get: genivi-demo
       params: {submodules: all}
   - task: build
-    file: contest/yocto/demo.yml
+    file: gdp-pipeline/yocto/demo.yml
   - put: artefacts
     params: {from: build-output/demo-artefacts-(.*).tgz}

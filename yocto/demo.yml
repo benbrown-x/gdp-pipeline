@@ -3,11 +3,11 @@ platform: linux
 image: "docker:///benbrown/yocto-demo"
 
 inputs:
-  - name: contest
+  - name: gdp-pipeline
   - name: genivi-demo
 
 outputs:
   - name: build-output
 
 run:
-  path: contest/yocto/demo
+  path: gdp-pipeline/yocto/demo
