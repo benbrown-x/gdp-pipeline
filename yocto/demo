@@ -4,7 +4,7 @@ out="$(pwd)/build-output"
 pushd genivi-demo
   source init.sh
   touch conf/sanity.conf
-  bitbake genivi-demo-platform
+  env BB_NUMBER_THREADS=1 bitbake genivi-demo-platform
 
   # Tar up files pointed to by symlinks
   pushd tmp/deploy/images/qemux86-64/
