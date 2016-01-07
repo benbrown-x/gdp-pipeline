@@ -24,4 +24,6 @@ with useful entries):
       --var "artefacts-secret-key=<SECRET_KEY>"
     fly unpause-pipeline -p demo-pipeline
 
-The webpage will be updated with some more shiny stuff.
+The webpage will be updated with some more shiny stuff.  I've not currently
+set builds to trigger from resource updates, so you'll have to navigate the
+web interface in order to kick off a build.
