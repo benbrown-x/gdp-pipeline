@@ -2,9 +2,8 @@ resources:
 - name: gdp-pipeline
   type: git
   source:
-    uri: ssh://git@github.com/benbrown-x/gdp-pipeline.git
+    uri: http://github.com/benbrown-x/gdp-pipeline.git
     branch: master
-    private_key: {{test_key}}
 
 - name: genivi-demo
   type: git
